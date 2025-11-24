@@ -1,11 +1,8 @@
-import { Button } from "@/components/ui/button";
+import prisma from "@/lib/prisma";
 
-const Page = () => {
-  return (
-    <div>
-      <Button variant={"destructive"}>Click Me!</Button>
-    </div>
-  );
+const Page = async () => {
+  const users = await prisma.post.findMany();
+  return <div>{JSON.stringify(users, null, 2)}</div>;
 };
 
 export default Page;
